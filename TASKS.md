@@ -11,7 +11,7 @@ Based on my current spec in SPEC.md, help me identify the right next chunk of wo
 
 Current state of my project:
 - nothing exists yet
-- [What was accomplished in the last session, if any]
+- We built the basic website, lets improve the styling
 - [Any blockers or issues from previous work]
 
 My target application fidelity is:  personal tool
@@ -143,25 +143,35 @@ Suggest a confidence-building task that gets me moving again.
 
 ## Session Work Items
 
-**Environment Setup & Weather API Proof Session**
+**Dynamic Weather-Based Styling Session**
 
 ### For AI Coding Agent:
-- [ ] Create Next.js project with TypeScript, Tailwind CSS, Shadcn UI
-- [ ] Set up basic responsive page layout with "Rain Checker" interface  
-- [ ] Research and test weather API integration (client-side, hourly precipitation)
-- [ ] Implement IP geolocation for automatic location detection
-- [ ] Add URL parameter parsing for location sharing (?lat=X&lng=Y)
-- [ ] Test and display basic weather data for detected/specified location
-- [ ] Deploy basic version to Vercel
+- [x] Update project documentation (SPEC.md) with dynamic styling roadmap
+- [ ] Create weather theme engine that maps WMO codes to visual themes
+- [ ] Implement CSS animation library in globals.css:
+  - [ ] Rain animation (diagonal falling droplets)
+  - [ ] Snow animation (gentle falling snowflakes)  
+  - [ ] Sun rays animation (rotating rays effect)
+  - [ ] Lightning flash effect for storms
+- [ ] Build dynamic UI system:
+  - [ ] Weather-responsive background gradients
+  - [ ] Adaptive card styling and transparency
+  - [ ] Theme-aware text colors for contrast
+  - [ ] Weather-appropriate button styling
+- [ ] Add smooth transitions between weather themes
+- [ ] Test mobile performance and accessibility
+- [ ] Implement reduced motion preferences support
 
 ### For Human Developer:
-- [ ] Review and select weather API provider
-- [ ] Test deployed app from different networks/locations
-- [ ] Verify location detection accuracy
+- [ ] Test visual themes across different weather conditions
+- [ ] Verify accessibility and readability in all themes
+- [ ] Check performance on mobile devices
+- [ ] Validate animations don't interfere with core functionality
 
 ### Session End:
-- [ ] Update SPEC.md based on weather API choice and technical discoveries
-- [ ] Update documentation with setup instructions and API details
+- [ ] Update SPEC.md with implementation details
+- [ ] Document any design decisions and performance considerations
+- [ ] Test deployed version with dynamic styling
 
 ## Session Notes
 [Track progress, decisions, and discoveries as you work]
