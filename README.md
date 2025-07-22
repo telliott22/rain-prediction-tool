@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rain Checker
+
+A lightweight, shareable web application that helps people decide whether to take wet weather gear when leaving their house.
+
+## Features
+
+✅ **Implemented**
+- **IP-based Location Detection** - Automatically detects user's location via IP geolocation
+- **URL Parameter Sharing** - Share specific locations via `?lat=X&lng=Y` parameters
+- **Real-time Weather Data** - Uses Open-Meteo API for accurate precipitation forecasts
+- **Rain Prediction** - Shows whether it will rain in the next hour at your exact location
+- **Responsive Design** - Works on desktop and mobile devices
+- **Dynamic Weather Display** - Visual feedback with weather-appropriate emojis
+
+## Core Functionality
+
+The app answers the key question: **"Should I bring an umbrella right now?"**
+
+- **Currently Raining**: Shows intensity and suggests bringing weather protection
+- **Rain Expected**: Alerts if rain is expected within the hour
+- **Possible Rain**: Shows probability if there's a chance (>30%)
+- **No Rain**: Confirms it's safe to go without an umbrella
+
+## Technical Stack
+
+- **Frontend**: Next.js 15+ with TypeScript
+- **Styling**: Tailwind CSS 
+- **Weather API**: Open-Meteo (no API key required, CORS-friendly)
+- **Location**: IP geolocation via ipapi.co
+- **Deployment**: Ready for Vercel deployment
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The app is configured for easy deployment to Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Connect your GitHub repository to Vercel
+2. Deploy automatically on push to main branch
+3. No environment variables required (APIs are free-tier)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Usage
 
-## Deploy on Vercel
+### Location Detection
+- **Primary**: IP geolocation via ipapi.co (free tier: 1,000 requests/month)
+- **Secondary**: URL parameters `?lat=X&lng=Y` for specific locations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Weather Data
+- **API**: Open-Meteo forecast API
+- **Endpoint**: `https://api.open-meteo.com/v1/forecast`
+- **Parameters**: hourly rain, showers, precipitation_probability, weather_code
+- **Rate Limits**: No limits for non-commercial use
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Architecture Decisions
+
+### Why Open-Meteo?
+- ✅ True CORS support for client-side requests
+- ✅ No API key required (simpler deployment)
+- ✅ Excellent precipitation data quality
+- ✅ Free for non-commercial use
+- ✅ Fast response times
+
+### Why Client-Side Only?
+- ✅ No backend maintenance
+- ✅ Easy deployment and scaling
+- ✅ Fast loading times
+- ✅ Shareable URLs work instantly
+- ✅ Lower hosting costs
